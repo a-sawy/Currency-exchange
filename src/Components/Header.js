@@ -11,6 +11,8 @@ const Header = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    //check if user loggedin
+
     if (userToken) {
       dispatch(getUserDetails());
     }
