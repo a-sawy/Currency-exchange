@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CurrenyControl from "../Components/Form/CurrenyControl";
+import HistoricalTable from "../Components/HistoricalTable";
+import RandomConversion from "../Components/RandomConversion";
 import Banner from "../Components/UI/Banner";
 import { historicalRates } from "../store/historicalAPI";
 
 const Details = () => {
-
   const { fromCurreny, toCurrency, lastDayInfo, lastMonthInfo, lastYearInfo } =
     useSelector((state) => state.currency);
 
@@ -39,7 +40,13 @@ const Details = () => {
   return (
     <>
       <Banner />
-      <CurrenyControl defaultEnabled={false}  />
+      <CurrenyControl defaultEnabled={false} />
+      <div className="Currency-details-container">
+        <HistoricalTable
+          historicalData={[lastDayInfo, lastMonthInfo, lastYearInfo]}
+        />
+        <RandomConversion/>
+      </div>
     </>
   );
 };

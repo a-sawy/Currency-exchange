@@ -29,6 +29,8 @@ export const historicalRates = createAsyncThunk(
         requestOptions
       );
 
+      
+
       const lastDayData = await lastDayRes.json();
       const lastMonthData = await lastMonthRes.json();
       const lastYearData = await lastYearRes.json();
